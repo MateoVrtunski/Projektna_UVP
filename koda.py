@@ -1,1 +1,0 @@
-projektna = 1
