@@ -1,16 +1,8 @@
 import re
 
-with open('stran.html') as f:
-    html = f.read()
+import civilizacije
 
-civilizacije = []
-vzorec1 = r";Ay\.\w+=" 
-civilizacije.append(re.findall(vzorec1,html))
-civilizacije = civilizacije[0]
-
-for i in range(len(civilizacije)):
-    civilizacije[i] = civilizacije[i].replace(';Ay.','')
-    civilizacije[i] = civilizacije[i].replace('=','')
+civilizacija = civilizacije.zajem_civilizacij("stran.html")
 
 
 with open('stran33.html') as f:
