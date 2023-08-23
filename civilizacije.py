@@ -22,12 +22,12 @@ def zajem_civilizacij(html):
     return civilizacije
 
 
-civilizacije = zajem_civilizacij("stran.html")
+civilizacija = zajem_civilizacij("stran.html")
 
-#for i in range(len(civilizacije)):
-    #stran = requests.get(f"https://aoestats.io/civs/{civilizacije[i]}/")
-    #with open(f"stran{i}.html", "w",encoding = 'utf-8') as dat:
-        #dat.write(stran.text)
+for i in range(len(civilizacija)):
+    stran = requests.get(f"https://aoestats.io/civs/{civilizacija[i]}/")
+    with open(f"stran{i}.html", "w",encoding = 'utf-8') as dat:
+        dat.write(stran.text)
 
 
-print(civilizacije)
+
