@@ -32,17 +32,25 @@ def slovar(seznam):
 
 test2 = slovar(test1)
 
-#for i in range(42):
-    #with open(f'stran{i}.html') as f:
-        #koda = f.read()
-        #iskanje = r""
 
-with open('stran0.html') as f:
-    huni = f.read()
-huni_zmage = []
-vzorec2 = r"\d+\.\d{2}%" 
-huni_zmage.append(re.findall(vzorec2,huni))
+glavni_seznam = []
+for i in range(len(civilizacije)):
+    with open(f'stran{i}.html') as f:
+        civ = f.read()
+    seznam = []
+    vzorec_procentov = r"\d+\.\d{2}%" 
+    seznam.append(re.findall(vzorec_procentov,civ))
+    seznam = seznam[0]
+
+    baza = {}
+    baza['civilizacija'] = f'{civilizacije[i]}'
+    baza['zmagovalna stopnja'] = seznam[0]
+    baza['igralna stopnja'] = seznam[3]
+    glavni_seznam.append(baza)
 
 
 
-print(huni_zmage)
+
+    
+
+print(glavni_seznam)
