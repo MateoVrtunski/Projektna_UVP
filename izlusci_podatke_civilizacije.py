@@ -1,7 +1,5 @@
 import re
 
-
-
 def izlusci_vse_podatke(ime):
     with open(f'{ime}.html') as f:
         html_civilizacija = f.read()
@@ -39,11 +37,11 @@ def izlusci_vse_podatke(ime):
     for i in range(len(mape)):
         mape[i] = mape[i].replace('/assets/maps/','')
         mape[i] = mape[i].replace('.webp','')
-
+    
+    
     
     baza = {}
 
-    
 
     baza['želeni nasprotniki'] = []
     zeleni_nasprotniki = {}
@@ -77,8 +75,8 @@ def izlusci_vse_podatke(ime):
     for i in range(len(otvoritve)):
         otvoritve_zmage[f'{otvoritve[i]}'] = procenti_otvoritev[(3 * i) + 2]
 
-    procenti_mape = procenti[37:]
-
+    procenti_mape = procenti[34:]
+    
 
     baza['igralna stopnja na posamezni mapi'] = []
     mape_igranje = {}
@@ -100,5 +98,5 @@ def izlusci_vse_podatke(ime):
 
 
 
-mongol = izlusci_vse_podatke('mongols')
-print(mongol)
+
+

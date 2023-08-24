@@ -10,7 +10,7 @@ def izlusci_podatke_map(mapa):
     procenti.append(re.findall(vzorec_procentov,podatki))
     procenti = procenti[0]
 
-    igranje = procenti[0]
+    
 
     procenti = procenti[3:]
 
@@ -18,37 +18,23 @@ def izlusci_podatke_map(mapa):
     vzorec_nn = r"/assets/civ_crests/\w+\.webp" 
     pojavitve.append(re.findall(vzorec_nn,podatki))
     pojavitve = pojavitve[0]
-
+    
     for i in range(len(pojavitve)):
         pojavitve[i] = pojavitve[i].replace('/assets/civ_crests/','')
         pojavitve[i] = pojavitve[i].replace('.webp','')
 
-    baza = {}
-
-    baza[f'igralna stopnja celotne mape {mapa}'] = igranje
-
-    baza['igralna stopnja'] = []
-    igralna_stopnja = {}
-    baza['igralna stopnja'].append(igralna_stopnja)
-
-    for i in range(len(pojavitve)):
-        igralna_stopnja[f'{pojavitve[i]}'] = procenti[3 * i]
-
-    baza['zmagovalna stopnja'] = []
-    zmagovalna_stopnja = {}
-    baza['zmagovalna stopnja'].append(zmagovalna_stopnja)
-
-    for i in range(len(pojavitve)):
-        zmagovalna_stopnja[f'{pojavitve[i]}'] = procenti[(3 * i) + 2]
-
     konec = []
-    konec.append(baza)
-
+    for i in range(len(pojavitve)):
+        baza = {}
+        baza['civilizacija'] = f'{pojavitve[i]}'
+        baza['igralna stopnja'] = procenti[3 * i]
+        baza['zmagovalna stopnja'] = procenti[(3 * i) + 2]
+        konec.append(baza)
+    
     return konec
 
-    
-high = izlusci_podatke_map('highland')
-print(high)
+print(izlusci_podatke_map('megarandom'))
+
 
 
 
