@@ -29,6 +29,6 @@ for i in range(len(civilizacija)):
     glavni_seznam.append(baza)
 
  
-#print(glavni_seznam)
+print(glavni_seznam)
 
 
