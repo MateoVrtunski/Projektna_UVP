@@ -10,24 +10,45 @@ def zajem_civilizacij(html):
     with open(html) as f:
         podatki = f.read()
 
-    civilizacije = []
-    vzorec1 = r";Au\.\w+=" 
-    civilizacije.append(re.findall(vzorec1,podatki))
-    civilizacije = civilizacije[0]
+    civ = []
+    vzorec = r"/assets/civ_crests/\w+\.webp" 
+    civ.append(re.findall(vzorec,podatki))
+    civ = civ[0]
+    civ.remove(civ[0])
+    for i in range(len(civ)):
+        civ[i] = civ[i].replace('/assets/civ_crests/','')
+        civ[i] = civ[i].replace('.webp','')
 
-    for i in range(len(civilizacije)):
-        civilizacije[i] = civilizacije[i].replace(';Au.','')
-        civilizacije[i] = civilizacije[i].replace('=','')
-
-    return civilizacije
+    return civ
 
 
 civilizacija = zajem_civilizacij("stran.html")
 
 for i in range(len(civilizacija)):
     stran = requests.get(f"https://aoestats.io/civs/{civilizacija[i]}/")
-    with open(f"stran{i}.html", "w",encoding = 'utf-8') as dat:
+    with open(f"{civilizacija[i]}.html", "w",encoding = 'utf-8') as dat:
         dat.write(stran.text)
 
+
+
+def mapa(html):
+    with open(html) as f:
+        neka_civilizacija = f.read()
+    mape = []
+    vzorec_mape = r"/assets/maps/\w+\.webp" 
+    mape.append(re.findall(vzorec_mape,neka_civilizacija))
+    mape = mape[0]
+    return mape
+
+mape = mapa('huns.html')
+
+for i in range(len(mape)):
+    mape[i] = mape[i].replace('/assets/maps/','')
+    mape[i] = mape[i].replace('.webp','')
+
+for i in range(len(mape)):
+    stran = requests.get(f"https://aoestats.io/maps/{mape[i]}/")
+    with open(f"{mape[i]}.html", "w",encoding = 'utf-8') as dat:
+        dat.write(stran.text)
 
 
