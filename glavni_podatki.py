@@ -23,12 +23,12 @@ for i in range(len(civilizacija)):
 
     baza = {}
     baza['civilizacija'] = f'{civilizacija[i]}'
-    baza['zmagovalna stopnja'] = seznam[0]
     baza['igralna stopnja'] = seznam[3]
+    baza['zmagovalna stopnja'] = seznam[0]
     baza['stevilo iger'] = igre[0]
     glavni_seznam.append(baza)
 
  
-print(glavni_seznam)
+
 
 

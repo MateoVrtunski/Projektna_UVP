@@ -44,59 +44,57 @@ def izlusci_vse_podatke(ime):
 
 
     baza['želeni nasprotniki'] = []
-    zeleni_nasprotniki = {}
-    baza['želeni nasprotniki'].append(zeleni_nasprotniki)
-
-    for i in range(5):
-        zeleni_nasprotniki[f'{najboljsi_najslabsi[i]}'] = procenti[i]
     
 
+    for i in range(5):
+        zeleni_nasprotniki = {}
+        zeleni_nasprotniki['civilizacija'] = f'{najboljsi_najslabsi[i]}'
+        zeleni_nasprotniki['zmagovalna stopnja'] = procenti[i]
+        baza['želeni nasprotniki'].append(zeleni_nasprotniki)
+
     baza['neželeni nasprotniki'] = []
-    nezeleni_nasprotniki = {}
-    baza['neželeni nasprotniki'].append(nezeleni_nasprotniki)
+    
 
     for i in range(5,10):
-        nezeleni_nasprotniki[f'{najboljsi_najslabsi[i]}'] = procenti[i]
+        nezeleni_nasprotniki = {}
+        nezeleni_nasprotniki['civilizacija'] = f'{najboljsi_najslabsi[i]}'
+        nezeleni_nasprotniki['zmagovalna stopnja'] = procenti[i]
+        baza['neželeni nasprotniki'].append(nezeleni_nasprotniki)
+
 
     procenti_otvoritev = procenti[10:]
     
 
-    baza['igralna stopnja otvoritev'] = []
-    otvoritve_igranje = {}
-    baza['igralna stopnja otvoritev'].append(otvoritve_igranje)
-
+    baza['otvoritve'] = []
+    
+    
     for i in range(len(otvoritve)):
-        otvoritve_igranje[f'{otvoritve[i]}'] = procenti_otvoritev[3 * i]
+        otvoritve_igranje = {}
+        otvoritve_igranje['otvoritev'] = f'{otvoritve[i]}'
+        otvoritve_igranje['igralna stopnja'] = procenti_otvoritev[3 * i]
+        otvoritve_igranje['zmagovalna stopnja'] = procenti_otvoritev[(3 * i) + 2]
+        baza['otvoritve'].append(otvoritve_igranje)
 
-    baza['zmagovalna stopnja otvoritev'] = []
-    otvoritve_zmage = {}
-    baza['zmagovalna stopnja otvoritev'].append(otvoritve_zmage)
-
-    for i in range(len(otvoritve)):
-        otvoritve_zmage[f'{otvoritve[i]}'] = procenti_otvoritev[(3 * i) + 2]
 
     procenti_mape = procenti[34:]
     
 
-    baza['igralna stopnja na posamezni mapi'] = []
-    mape_igranje = {}
-    baza['igralna stopnja na posamezni mapi'].append(mape_igranje)
+    baza['mape'] = []
+    
 
     for i in range(len(mape)):
-        mape_igranje[f'{mape[i]}'] = procenti_mape[(3 * i)]
-
-    baza['zmagovalna stopnja na posamezni mapi'] = []
-    mape_zmage = {}
-    baza['zmagovalna stopnja na posamezni mapi'].append(mape_zmage)
-
-    for i in range(len(mape)):
-        mape_zmage[f'{mape[i]}'] = procenti_mape[(3 * i) + 2]
+        mape_igranje = {}
+        mape_igranje['mapa'] = f'{mape[i]}'
+        mape_igranje['igralna stopnja'] = procenti_mape[(3 * i)]
+        mape_igranje['zmagovalna stopnja'] = procenti_mape[(3 * i) + 2]
+        baza['mape'].append(mape_igranje)
+   
 
     civi = []
     civi.append(baza)
     return civi
 
+neki = izlusci_vse_podatke('sicilians')
 
-
-
+print(neki[0])
 
