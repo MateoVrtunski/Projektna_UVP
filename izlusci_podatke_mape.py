@@ -9,6 +9,8 @@ def izlusci_podatke_map(mapa):
     vzorec_procentov = r"\d+\.\d{2}%" 
     procenti.append(re.findall(vzorec_procentov,podatki))
     procenti = procenti[0]
+    for j in range(len(procenti)):
+        procenti[j] = procenti[j].replace('%','')
 
     
 
@@ -22,6 +24,7 @@ def izlusci_podatke_map(mapa):
     for i in range(len(pojavitve)):
         pojavitve[i] = pojavitve[i].replace('/assets/civ_crests/','')
         pojavitve[i] = pojavitve[i].replace('.webp','')
+        
 
     konec = []
     for i in range(len(pojavitve)):

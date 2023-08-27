@@ -9,6 +9,8 @@ def izlusci_vse_podatke(ime):
     vzorec_procentov = r"\d+\.\d{2}%" 
     procenti.append(re.findall(vzorec_procentov,html_civilizacija))
     procenti = procenti[0]
+    for j in range(len(procenti)):
+        procenti[j] = procenti[j].replace('%','')
     procenti = procenti[4:]
     
 
@@ -29,6 +31,7 @@ def izlusci_vse_podatke(ime):
     for i in range(len(otvoritve)):
         otvoritve[i] = otvoritve[i].replace('/assets/openings/','')
         otvoritve[i] = otvoritve[i].replace('.webp','')
+        otvoritve[i] = otvoritve[i].replace('_',' ')
 
     mape = []
     vzorec_mape = r"/assets/maps/\w+\.webp" 
@@ -94,7 +97,7 @@ def izlusci_vse_podatke(ime):
     civi.append(baza)
     return civi
 
-neki = izlusci_vse_podatke('sicilians')
 
-print(neki[0])
+
+
 

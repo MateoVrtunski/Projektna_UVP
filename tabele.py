@@ -11,13 +11,13 @@ with open("civilizacije_tabela.csv", "w") as f:
     for row in podatki:
         writer.writerow(row)
     
-#megarandom = izlusci_podatke_mape.izlusci_podatke_map('megarandom')
+megarandom = izlusci_podatke_mape.izlusci_podatke_map('megarandom')
 
-#with open("megarandom_tabela.csv", "w") as f:
-    #writer = csv.DictWriter(f, fieldnames=["civilizacija", "igralna stopnja", "zmagovalna stopnja"])
-    #writer.writeheader()
-    #for row in megarandom:
-        #writer.writerow(row)
+with open("megarandom_tabela.csv", "w") as f:
+    writer = csv.DictWriter(f, fieldnames=["civilizacija", "igralna stopnja", "zmagovalna stopnja"])
+    writer.writeheader()
+    for row in megarandom:
+        writer.writerow(row)
 
 sicilianci = izlusci_podatke_civilizacije.izlusci_vse_podatke('sicilians')
 
