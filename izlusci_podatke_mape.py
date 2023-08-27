@@ -2,7 +2,7 @@ import re
 
 
 def izlusci_podatke_map(mapa):
-    with open(f"{mapa}.html") as f:
+    with open(f"htmlji/{mapa}.html") as f:
             podatki = f.read()
 
     procenti = []
@@ -24,7 +24,7 @@ def izlusci_podatke_map(mapa):
     for i in range(len(pojavitve)):
         pojavitve[i] = pojavitve[i].replace('/assets/civ_crests/','')
         pojavitve[i] = pojavitve[i].replace('.webp','')
-        
+
 
     konec = []
     for i in range(len(pojavitve)):
@@ -36,7 +36,7 @@ def izlusci_podatke_map(mapa):
     
     return konec
 
-print(izlusci_podatke_map('megarandom'))
+
 
 
 
