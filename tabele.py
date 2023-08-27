@@ -1,15 +1,15 @@
 import csv
-#import glavni_podatki
-#import izlusci_podatke_mape
+import glavni_podatki
+import izlusci_podatke_mape
 import izlusci_podatke_civilizacije
 
-#podatki = glavni_podatki.glavni_seznam
+podatki = glavni_podatki.glavni_seznam
 
-#with open("civilizacije_tabela.csv", "w") as f:
-    #writer = csv.DictWriter(f, fieldnames=["civilizacija", "igralna stopnja", "zmagovalna stopnja", "stevilo iger"])
-    #writer.writeheader()
-    #for row in podatki:
-        #writer.writerow(row)
+with open("civilizacije_tabela.csv", "w") as f:
+    writer = csv.DictWriter(f, fieldnames=["civilizacija", "igralna stopnja", "zmagovalna stopnja", "stevilo iger"])
+    writer.writeheader()
+    for row in podatki:
+        writer.writerow(row)
     
 #megarandom = izlusci_podatke_mape.izlusci_podatke_map('megarandom')
 

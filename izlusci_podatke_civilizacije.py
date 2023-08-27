@@ -80,7 +80,7 @@ def izlusci_vse_podatke(ime):
     
 
     baza['mape'] = []
-    
+
 
     for i in range(len(mape)):
         mape_igranje = {}

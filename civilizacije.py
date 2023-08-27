@@ -14,7 +14,7 @@ def zajem_civilizacij(html):
     vzorec = r"/assets/civ_crests/\w+\.webp" 
     civ.append(re.findall(vzorec,podatki))
     civ = civ[0]
-    civ.remove(civ[0])
+   
     for i in range(len(civ)):
         civ[i] = civ[i].replace('/assets/civ_crests/','')
         civ[i] = civ[i].replace('.webp','')
@@ -50,5 +50,4 @@ for i in range(len(mape)):
     stran = requests.get(f"https://aoestats.io/maps/{mape[i]}/")
     with open(f"{mape[i]}.html", "w",encoding = 'utf-8') as dat:
         dat.write(stran.text)
-
 
