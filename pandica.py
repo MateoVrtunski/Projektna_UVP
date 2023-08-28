@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 civ = pd.read_csv('civilizacije_tabela.csv')
 sici_zeleni = pd.read_csv('sicilijanci_zeleni_nasprotniki.csv')
@@ -20,28 +20,28 @@ def graf_glavni(file):
     plt.legend(loc='best')
     plt.show()
 
-def sicilijanci_zeleni(file):
+def civ_zeleni(file):
     file.plot(kind= 'bar',
         x = "civilizacija",width = 0.6, xlabel = "Civilizacije", y = "zmagovalna stopnja", ylabel ='Procenti(%)', color = 'green')
     plt.title('Želeni nasprotniki')
     plt.ylim(50,63)
     plt.show()
 
-def sicilijanci_nezeleni(file):
+def civ_nezeleni(file):
     file.plot(kind= 'bar',
         x = "civilizacija",width = 0.6, xlabel = "Civilizacije", y = "zmagovalna stopnja", ylabel ='Procenti(%)', color = 'red')
     plt.title('Neželeni nasprotniki')
     plt.ylim(35,47)
     plt.show()
 
-def sicilijanci_otvoritve_igr(file):
+def civ_otvoritve_igr(file):
     file.plot(kind= 'pie',
         y = 'igralna stopnja', labels = file['otvoritev'])
     plt.title('Igralna stopnja otvoritev')
     plt.ylabel('')
     plt.show()
 
-def sicilijanci_otvoritve_zmg(file):
+def civ_otvoritve_zmg(file):
     file.plot(kind= 'bar',
         x = "otvoritev",width = 0.6, xlabel = "Otvoritve", y = "zmagovalna stopnja", ylabel ='Procenti(%)', color = 'turquoise')
     plt.title('Procenti zmag pri posameznih otvoritvah')
@@ -49,7 +49,7 @@ def sicilijanci_otvoritve_zmg(file):
     plt.show()
 
 
-def sicilijanci_mape(file):
+def civ_mape(file):
 
     file.plot(kind= 'bar',
         x = "mapa",width = 0.6, xlabel = "Mape", ylabel = 'Procenti (%)',
@@ -59,7 +59,7 @@ def sicilijanci_mape(file):
     plt.legend(loc='best')
     plt.show()
 
-def meagrandom_vse(file):
+def mapa_vse(file):
 
     file.plot(kind= 'bar',
         x = "civilizacija",width = 0.6, xlabel = "Civilizacije", ylabel = 'Procenti (%)',
