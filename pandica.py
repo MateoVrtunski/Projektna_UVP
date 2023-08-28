@@ -36,8 +36,8 @@ def civ_nezeleni(file):
 
 def civ_otvoritve_igr(file):
     file.plot(kind= 'pie',
-        y = 'igralna stopnja', labels = file['otvoritev'])
-    plt.title('Igralna stopnja otvoritev')
+        y = 'igralna stopnja', labels = file['otvoritev'],radius = 1.8)
+    plt.legend('',frameon=False)
     plt.ylabel('')
     plt.show()
 
@@ -56,23 +56,21 @@ def civ_mape(file):
         secondary_y= 'igralna stopnja', rot= 90, color = ["violet", "blue"] )
 
     plt.title('Razmerje igralne in zmagovalne stopnje na posamezni mapi')
-    plt.legend(loc='best')
+    
     plt.show()
 
 def mapa_vse(file):
 
     file.plot(kind= 'bar',
-        x = "civilizacija",width = 0.6, xlabel = "Civilizacije", ylabel = 'Procenti (%)',
+        x = "civilizacija",width = 0.8, xlabel = "Civilizacije", ylabel = 'Procenti (%)',
         secondary_y= 'igralna stopnja', rot= 90, color = ["turquoise", "orange"] )
-
     plt.title('Razmerje igralne in zmagovalne stopnje na megarandom')
     plt.legend(loc='best')
     plt.show()
 
 
 
-
-
+hej = mapa_vse(megrandom)
 
 
 
