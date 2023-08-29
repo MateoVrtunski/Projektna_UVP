@@ -5,7 +5,7 @@ civilizacija = civilizacije.civilizacija
 
 glavni_seznam = []
 for i in range(len(civilizacija)):
-    with open(f'{civilizacija[i]}.html') as f:
+    with open(f'htmlji/{civilizacija[i]}.html') as f:
         civ = f.read()
     seznam = []
     vzorec_procentov = r"\d+\.\d{2}%" 

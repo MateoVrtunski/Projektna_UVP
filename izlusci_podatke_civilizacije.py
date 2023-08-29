@@ -1,7 +1,7 @@
 import re
 
 def izlusci_vse_podatke(ime):
-    with open(f'{ime}.html') as f:
+    with open(f'htmlji/{ime}.html') as f:
         html_civilizacija = f.read()
   
 

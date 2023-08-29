@@ -3,7 +3,7 @@ import re
 
 stran = requests.get("https://aoestats.io/civs/")
 
-with open("stran.html", "w", encoding = 'utf-8') as dat:
+with open("htmlji/stran.html", "w", encoding = 'utf-8') as dat:
     dat.write(stran.text)
 
 def zajem_civilizacij(html):
@@ -26,7 +26,7 @@ civilizacija = zajem_civilizacij("stran.html")
 
 for i in range(len(civilizacija)):
     stran = requests.get(f"https://aoestats.io/civs/{civilizacija[i]}/")
-    with open(f"{civilizacija[i]}.html", "w",encoding = 'utf-8') as dat:
+    with open(f"htmlji/{civilizacija[i]}.html", "w",encoding = 'utf-8') as dat:
         dat.write(stran.text)
 
 
@@ -40,7 +40,7 @@ def mapa(html):
     mape = mape[0]
     return mape
 
-mape = mapa('huns.html')
+mape = mapa('htmlji/huns.html')
 
 for i in range(len(mape)):
     mape[i] = mape[i].replace('/assets/maps/','')
@@ -48,6 +48,6 @@ for i in range(len(mape)):
 
 for i in range(len(mape)):
     stran = requests.get(f"https://aoestats.io/maps/{mape[i]}/")
-    with open(f"{mape[i]}.html", "w",encoding = 'utf-8') as dat:
+    with open(f"htmlji/{mape[i]}.html", "w",encoding = 'utf-8') as dat:
         dat.write(stran.text)
 
