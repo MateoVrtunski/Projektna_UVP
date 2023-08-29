@@ -1,3 +1,6 @@
 
 
 git rm -r --cached _pycache_
+*.pyc
+
+_pycache_/
