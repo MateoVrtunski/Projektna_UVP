@@ -21,13 +21,13 @@ with open("megarandom_tabela.csv", "w") as f:
 
 sicilianci = izlusci_podatke_civilizacije.izlusci_vse_podatke('sicilians')
 
-with open("sicilijanci_zeleni nasprotniki.csv", "w") as f:
+with open("sicilijanci_zeleni_nasprotniki.csv", "w") as f:
     writer = csv.DictWriter(f, fieldnames=["civilizacija", "zmagovalna stopnja"])
     writer.writeheader()
     for row in sicilianci[0]['želeni nasprotniki']:
         writer.writerow(row)
 
-with open("sicilijanci_nezeleni nasprotniki.csv", "w") as f:    
+with open("sicilijanci_nezeleni_nasprotniki.csv", "w") as f:    
     writer = csv.DictWriter(f, fieldnames=["civilizacija", "zmagovalna stopnja"])
     writer.writeheader()
     for row in sicilianci[0]['neželeni nasprotniki']:
