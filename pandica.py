@@ -36,9 +36,10 @@ def civ_nezeleni(file):
 
 def civ_otvoritve_igr(file):
     file.plot(kind= 'pie',
-        y = 'igralna stopnja', labels = file['otvoritev'],radius = 1.8)
+        y = 'igralna stopnja', labels = file['otvoritev'],radius = 1.3)
     plt.legend('',frameon=False)
     plt.ylabel('')
+    plt.title('Igralna stopnja', loc='right')
     plt.show()
 
 def civ_otvoritve_zmg(file):
@@ -70,7 +71,7 @@ def mapa_vse(file):
 
 
 
-hej = mapa_vse(megrandom)
+hej = civ_otvoritve_igr(sici_otvoritve)
 
 
 
