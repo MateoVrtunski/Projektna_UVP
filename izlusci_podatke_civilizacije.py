@@ -1,9 +1,12 @@
 import re
 
+# tu bomo izluščili vse podatke iz strani ene civilizacije
+
 def izlusci_vse_podatke(ime):
     with open(f'htmlji/{ime}.html') as f:
         html_civilizacija = f.read()
   
+    # poiščemo vse procente
 
     procenti = []
     vzorec_procentov = r"\d+\.\d{2}%" 
@@ -13,6 +16,7 @@ def izlusci_vse_podatke(ime):
         procenti[j] = procenti[j].replace('%','')
     procenti = procenti[4:]
     
+    # poiščemo želene in neželen nasprotnike
 
     najboljsi_najslabsi = []
     vzorec_nn = r"/assets/civ_crests/\w+\.webp" 
@@ -23,6 +27,7 @@ def izlusci_vse_podatke(ime):
         najboljsi_najslabsi[i] = najboljsi_najslabsi[i].replace('/assets/civ_crests/','')
         najboljsi_najslabsi[i] = najboljsi_najslabsi[i].replace('.webp','')
 
+    # poiščemo otvoritve
 
     otvoritve = []
     vzorec_otvoritve = r"/assets/openings/\w+\.webp" 
@@ -33,6 +38,8 @@ def izlusci_vse_podatke(ime):
         otvoritve[i] = otvoritve[i].replace('.webp','')
         otvoritve[i] = otvoritve[i].replace('_',' ')
 
+    # poiščemo vse mape
+
     mape = []
     vzorec_mape = r"/assets/maps/\w+\.webp" 
     mape.append(re.findall(vzorec_mape,html_civilizacija))
@@ -41,7 +48,7 @@ def izlusci_vse_podatke(ime):
         mape[i] = mape[i].replace('/assets/maps/','')
         mape[i] = mape[i].replace('.webp','')
     
-    
+    # naredimo slovar v katerega bomo vse podatke shranili po vrsti
     
     baza = {}
 
@@ -97,6 +104,7 @@ def izlusci_vse_podatke(ime):
     civi.append(baza)
     return civi
 
+# vrne nam slovar s seznami za vsako kategorijo
 
 
 

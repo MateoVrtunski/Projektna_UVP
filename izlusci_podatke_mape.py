@@ -1,9 +1,12 @@
 import re
 
+# tu bomo izluščili vse podatke iz strani ene mape
 
 def izlusci_podatke_map(mapa):
     with open(f"htmlji/{mapa}.html") as f:
             podatki = f.read()
+
+    # poiščemo vse procente
 
     procenti = []
     vzorec_procentov = r"\d+\.\d{2}%" 
@@ -11,10 +14,10 @@ def izlusci_podatke_map(mapa):
     procenti = procenti[0]
     for j in range(len(procenti)):
         procenti[j] = procenti[j].replace('%','')
-
-    
-
+        
     procenti = procenti[3:]
+
+    # poiščemo civilizacije v tistem vrstne redu kot je na strani
 
     pojavitve = []
     vzorec_nn = r"/assets/civ_crests/\w+\.webp" 
@@ -25,6 +28,7 @@ def izlusci_podatke_map(mapa):
         pojavitve[i] = pojavitve[i].replace('/assets/civ_crests/','')
         pojavitve[i] = pojavitve[i].replace('.webp','')
 
+    # naredimo slovar, kjer bomo shranili vse podatke
 
     konec = []
     for i in range(len(pojavitve)):
@@ -36,7 +40,7 @@ def izlusci_podatke_map(mapa):
     
     return konec
 
-
+# vrne nam slovar s seznami za vsako kategorijo
 
 
 

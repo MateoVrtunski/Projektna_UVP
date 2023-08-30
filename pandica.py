@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# uvozimo tabele določene civilizacije in mape za teste (lahko bi tudi brez)
 
 civ = pd.read_csv('civilizacije_tabela.csv')
 sici_zeleni = pd.read_csv('sicilijanci_zeleni_nasprotniki.csv')
@@ -9,6 +10,7 @@ sici_otvoritve = pd.read_csv('sicilijanci_otvoritve.csv')
 sici_mape = pd.read_csv('sicilijanci_mape.csv')
 megrandom = pd.read_csv("megarandom_tabela.csv")
 
+# naredimo funkcije za risanje vseh grafov, ki jih bomo potrebovali
 
 def graf_glavni(file):
 
@@ -71,7 +73,7 @@ def mapa_vse(file):
 
 
 
-hej = civ_otvoritve_igr(sici_otvoritve)
+
 
 
 

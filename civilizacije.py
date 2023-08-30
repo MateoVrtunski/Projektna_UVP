@@ -1,10 +1,14 @@
 import requests
 import re
 
+# naložimo glavno stran
+
 stran = requests.get("https://aoestats.io/civs/")
 
 with open("htmlji/stran.html", "w", encoding = 'utf-8') as dat:
     dat.write(stran.text)
+
+# izluščimo vse civilizacije v seznam
 
 def zajem_civilizacij(html):
     with open(html) as f:
@@ -24,12 +28,14 @@ def zajem_civilizacij(html):
 
 civilizacija = zajem_civilizacij("stran.html")
 
+# s pomočjo seznama prenesemo stran vsake civilizacije
+
 for i in range(len(civilizacija)):
     stran = requests.get(f"https://aoestats.io/civs/{civilizacija[i]}/")
     with open(f"htmlji/{civilizacija[i]}.html", "w",encoding = 'utf-8') as dat:
         dat.write(stran.text)
 
-
+# enako naredimo za mape
 
 def mapa(html):
     with open(html) as f:
